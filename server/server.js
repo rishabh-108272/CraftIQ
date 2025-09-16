@@ -19,7 +19,3 @@ app.use('/api/user',userRouter)
 
 app.get('/', (req,res)=>res.send('Server is live'))
 const PORT = process.env.PORT || 3000
-
-app.listen(PORT, ()=>{
-    console.log('Server is running on port', PORT);
-})
