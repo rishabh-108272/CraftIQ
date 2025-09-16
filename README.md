@@ -1,4 +1,4 @@
-# AI Tools SaaS Platform 🚀
+# CraftIQ:AI Tools SaaS Platform 🚀
 
 A comprehensive SaaS platform offering multiple AI-powered tools for content creation, image processing, and professional development. Built with the PERN stack (PostgreSQL, Express.js, React, Node.js) and modern web technologies.
 
