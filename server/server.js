@@ -19,3 +19,8 @@ app.use('/api/user',userRouter)
 app.get('/', (req,res)=>res.send('Server is live'))
 const PORT = process.env.PORT || 3000
 export default (req, res) => app(req, res);
+
+// const server=app.listen(PORT,()=>{
+//     console.log("Server is listening")
+// })
+// export default server

@@ -5,6 +5,7 @@ import axios from 'axios'
 import { useAuth } from '@clerk/clerk-react';
 import {toast} from 'react-hot-toast'
 import Markdown from 'react-markdown';
+
 axios.defaults.baseURL=import.meta.env.VITE_BASE_URL;
 
 const WriteArticle = () => {
@@ -74,7 +75,7 @@ const onSubmitHandler=async(e)=>{
 ))}
         </div>
         <br/>
-        <button disable={loading} className='w-full flex justify-center items-center gap-2 bg-gradient-to-r from-[#226BFF] to-[#65ADFF] text-white px-4 py-2 mt-6 text-sm rounded-lg cursor-pointer'>
+        <button disabled={loading} className='w-full flex justify-center items-center gap-2 bg-gradient-to-r from-[#226BFF] to-[#65ADFF] text-white px-4 py-2 mt-6 text-sm rounded-lg cursor-pointer'>
           {
             loading? <span className='w-4 h-4 my-1 rounded-full border-2 border-t-transparent animate-spin'></span>
             : <Edit className='w-5'/>
