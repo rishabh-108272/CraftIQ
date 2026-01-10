@@ -1,10 +1,10 @@
-# CraftIQ:AI Tools SaaS Platform 🚀
+# CraftIQ:AI Tools SaaS Platform
 
 A comprehensive SaaS platform offering multiple AI-powered tools for content creation, image processing, and professional development. Built with the PERN stack (PostgreSQL, Express.js, React, Node.js) and modern web technologies.
 
-## 🌟 Features
+## Features
 
-### 🤖 AI-Powered Tools
+### AI-Powered Tools
 - **Resume Review**: Intelligent resume analysis with actionable feedback and optimization suggestions
 - **Image Generation**: Create stunning images from text prompts using advanced AI models
 - **Background Removal**: Remove backgrounds from images with 95%+ accuracy
@@ -12,19 +12,19 @@ A comprehensive SaaS platform offering multiple AI-powered tools for content cre
 - **Blog Title Generator**: Generate engaging and SEO-optimized blog titles
 - **Article Writer**: Create comprehensive articles on any topic with AI assistance
 
-### 🔐 User Management
+### User Management
 - Secure user authentication with JWT tokens
 - Role-based access control
 - User dashboard with usage analytics
 - Profile management and settings
 
-### 📱 Modern UI/UX
+### Modern UI/UX
 - Responsive design that works on all devices
 - Clean and intuitive interface built with Tailwind CSS
 - Real-time processing feedback and loading states
 - Interactive dashboards and data visualization
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend
 - **React** - Modern UI library with hooks
@@ -47,7 +47,7 @@ A comprehensive SaaS platform offering multiple AI-powered tools for content cre
 - **Vercel** - Frontend and backend deployment
 - **CI/CD** - Automated deployment pipeline
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js (v16 or higher)
@@ -123,7 +123,7 @@ A comprehensive SaaS platform offering multiple AI-powered tools for content cre
    - Frontend: http://localhost:5173
    - Backend API: http://localhost:5000
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 AI-SaaS-Platform/
@@ -156,7 +156,7 @@ AI-SaaS-Platform/
 └── README.md
 ```
 
-## 🔌 API Endpoints
+## API Endpoints
 
 ### Authentication
 - `POST /api/users/register` - User registration
@@ -172,7 +172,7 @@ AI-SaaS-Platform/
 - `POST /api/ai/generate-blog-titles` - Generate blog titles
 - `POST /api/ai/write-article` - Generate article content
 
-## 🎨 Features in Detail
+## Features in Detail
 
 ### Resume Review Tool
 - PDF/DOC file upload support
@@ -194,7 +194,7 @@ AI-SaaS-Platform/
 - Multiple writing styles and tones
 - Research-backed content creation
 
-## 🔒 Security Features
+## Security Features
 
 - JWT-based authentication
 - Password hashing with bcrypt
@@ -204,7 +204,7 @@ AI-SaaS-Platform/
 - CORS configuration
 - Environment variable protection
 
-## 📊 Performance Optimization
+## Performance Optimization
 
 - Image optimization and compression
 - Lazy loading for components
@@ -213,7 +213,7 @@ AI-SaaS-Platform/
 - Database query optimization
 - CDN integration for static assets
 
-## 🚀 Deployment
+## Deployment
 
 The application is deployed on Vercel with the following configuration:
 
@@ -243,25 +243,25 @@ The application is deployed on Vercel with the following configuration:
 }
 ```
 
-## 📝 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👨‍💻 Author
+## Author
 
 **Rishabh Verma**
 - GitHub: [@rishabh-108272](https://github.com/rishabh-108272)
 - LinkedIn: [Rishabh Verma](https://www.linkedin.com/in/rishabh-verma-875214247/)
 - Email: rishabhverma3648@gmail.com
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Thanks to all AI service providers for their APIs
 - Cloudinary for image processing capabilities
 - The open-source community for amazing tools and libraries
 - Vercel for seamless deployment experience
 
-## 📈 Future Enhancements
+## Future Enhancements
 
 - [ ] Mobile app development (React Native)
 - [ ] Advanced analytics dashboard
