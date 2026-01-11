@@ -218,7 +218,8 @@ export const resumeReview = async (req, res) => {
     const dataBuffer = resume.buffer
     const pdfData = await Pdf(dataBuffer);
 
-    const prompt = `Review the following resume and provide constructive feedback on its strengths, weaknesses, and areas for improvement. Resume Content:\n\n${pdfData.text}`;
+    const prompt = `Review the following resume and provide constructive feedback on its strengths, weaknesses, and areas for improvement. Generate the review without any trailing characters such as dashes, lines, etc. Generate in markdown format.
+    Resume Content:\n\n${pdfData.text}`;
 
     const response = await AI.chat.completions.create({
       model: "openai/gpt-oss-120b",

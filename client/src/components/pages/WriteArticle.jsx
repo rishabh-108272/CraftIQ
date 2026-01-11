@@ -28,7 +28,8 @@ const onSubmitHandler=async(e)=>{
   e.preventDefault();
   try{
     setloading(true);
-    const prompt=`Write an article about ${input} in ${selectedLength.text}`
+    const prompt=`Write an article about ${input} in ${selectedLength.text} limit only. 
+    Don't exceed more than this length.Generate the output in markdown format.`
 
     const {data}=await axios.post('/api/ai/generate-article',{prompt,length:selectedLength.length},{
       headers:{Authorization:`Bearer ${await getToken()}`}
