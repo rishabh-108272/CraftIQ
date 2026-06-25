@@ -34,18 +34,46 @@ const Community = () => {
   }
   
   const imageLikeToggle =  async (id)=>{
+    if (!user) return;
+
+    const targetCreation = creations.find(c => c.id === id);
+    if (!targetCreation) return;
+
+    const originalLikes = targetCreation.likes;
+    const isLiked = originalLikes.includes(user.id);
+    const updatedLikes = isLiked
+      ? originalLikes.filter(uid => uid !== user.id)
+      : [...originalLikes, user.id];
+
+    // Optimistically update the UI immediately
+    setCreations(prevCreations =>
+      prevCreations.map(c => (c.id === id ? { ...c, likes: updatedLikes } : c))
+    );
+
     try {
-        const {data}=await axios.get('/api/user/toggle-like-creation/',{id},{
-  headers: { Authorization: `Bearer ${await getToken()}` }
-});
+      const {data}=await axios.post('/api/user/toggle-like-creation', {id}, {
+        headers: { Authorization: `Bearer ${await getToken()}` }
+      });
 
       if(data.success){
-        toast.success(data.message || "Creation liked")
-        await fetchCreations()
+        // Sync with the server response
+        setCreations(prevCreations =>
+          prevCreations.map(c => (c.id === id ? { ...c, likes: data.likes } : c))
+        );
+      } else {
+        toast.error(data.message || "Failed to like creation");
+        // Rollback state if server action failed
+        setCreations(prevCreations =>
+          prevCreations.map(c => (c.id === id ? { ...c, likes: originalLikes } : c))
+        );
       }
       
     } catch (error) {
-      toast.error(error.message || "Failed to like creation")
+      toast.error(error.message || "Failed to like creation");
+      // Rollback state if network request failed
+      setCreations(prevCreations =>
+        prevCreations.map(c => (c.id === id ? { ...c, likes: originalLikes } : c))
+      );
     }
   }
   useEffect(()=>{

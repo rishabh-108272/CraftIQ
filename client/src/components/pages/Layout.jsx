@@ -24,7 +24,13 @@ const Layout = () => {
       <div className='flex flex-1 h-[calc(100vh-56px)]'>
         <Sidebar sidebar={sidebar} setSidebar={setSidebar} />
         <div className='flex-1 bg-[#F4F7FB] overflow-auto'>
-          <Outlet />
+          <React.Suspense fallback={
+            <div className='flex justify-center items-center h-full'>
+              <span className='w-10 h-10 my-1 rounded-full border-3 border-purple-500 border-t-transparent animate-spin'></span>
+            </div>
+          }>
+            <Outlet />
+          </React.Suspense>
         </div>
       </div>
     </div>
