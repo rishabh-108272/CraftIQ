@@ -3,7 +3,7 @@ import sql from "../configs/db.js";
 
 export const getUserCreations= async(req,res)=>{
     try{
-        const {userId} =req.auth()
+        const {userId} =req.auth();
 
         const creations=await sql `SELECT * FROM creations WHERE user_id=${userId} ORDER BY created_at DESC`;
 
@@ -26,8 +26,8 @@ export const getPublishedCreations= async(req,res)=>{
 export const toggleLikeCreations= async(req,res)=>{
     try{
 
-        const {userId}=req.auth()
-        const {id}=req.params
+        const {userId}=req.auth();
+        const {id}=req.body
 
         const [creation]=await sql `SELECT * FROM creations WHERE id=${id}`
         if(!creation){

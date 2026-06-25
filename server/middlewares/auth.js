@@ -3,7 +3,7 @@ import { clerkClient } from '@clerk/express';
 
 export const auth = async (req,res,next)=>{
     try{
-        const {userId, has} = await  req.auth();
+        const {userId, has} = req.auth();
         const hasPremiumPlan= await has({plan:'premium'});
         const user=await clerkClient.users.getUser(userId);
 
@@ -20,6 +20,6 @@ export const auth = async (req,res,next)=>{
         req.plan=hasPremiumPlan ? 'premium' : 'free';
         next()
     }catch(err){
-        resizeBy.json({success: false, message:err.message})
+        res.json({success: false, message:err.message})
     }
 }

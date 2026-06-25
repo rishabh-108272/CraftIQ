@@ -16,7 +16,7 @@ const AI = new OpenAI({
 
 export const generateArticle = async (req, res) => {
   try {
-    const { userId } = req.auth;
+    const { userId } = req.auth();
     const { prompt, length } = req.body;
     const plan = req.plan;
     const free_usage = req.free_usage;
@@ -55,7 +55,7 @@ export const generateArticle = async (req, res) => {
 
 export const generateBlogTitle = async (req, res) => {
   try {
-    const { userId } = req.auth;
+    const { userId } = req.auth();
     const { prompt } = req.body;
     const plan = req.plan;
     const free_usage = req.free_usage;
@@ -94,12 +94,12 @@ export const generateBlogTitle = async (req, res) => {
 
 export const generateImage = async (req, res) => {
   try {
-    const { userId } = req.auth;
+    const { userId } = req.auth();
     const { prompt, publish } = req.body;
     const plan = req.plan;
     const free_usage = req.free_usage;
 
-    if (plan !== 'premium' && free_usage >= 10) {
+    if (plan !== 'premium') {
       return res.json({ success: false, message: "This feature is for premium users only. Upgrade to continue." });
     }
 
@@ -136,12 +136,12 @@ export const generateImage = async (req, res) => {
 
 export const removeImageBackground = async (req, res) => {
   try {
-    const { userId } = req.auth;
+    const { userId } = req.auth();
     const plan = req.plan;
     const free_usage = req.free_usage;
     const image = req.file;
 
-    if (plan !== 'premium' && free_usage >= 10) {
+    if (plan !== 'premium') {
       return res.json({ success: false, message: "This feature is for premium users only. Upgrade to continue." });
     }
     const base64Image = `data:${req.file.mimetype};base64,${req.file.buffer.toString('base64')}`;
@@ -169,13 +169,13 @@ export const removeImageBackground = async (req, res) => {
 // ----------------- Remove Object -----------------
 export const removeImageObject = async (req, res) => {
   try {
-    const { userId } = req.auth;
+    const { userId } = req.auth();
     const { object } = req.body;
     const image = req.file;
     const plan = req.plan;
     const free_usage = req.free_usage;
 
-    if (plan !== 'premium' && free_usage >= 10) {
+    if (plan !== 'premium') {
       return res.json({ success: false, message: "This feature is for premium users only. Upgrade to continue." });
     }
 
@@ -202,12 +202,12 @@ res.json({ success: true, content: image_url });
 // ----------------- Resume Review -----------------
 export const resumeReview = async (req, res) => {
   try {
-    const { userId } = req.auth;
+    const { userId } = req.auth();
     const resume = req.file;
     const plan = req.plan;
     const free_usage = req.free_usage;
 
-    if (plan !== 'premium' && free_usage >= 10) {
+    if (plan !== 'premium') {
       return res.json({ success: false, message: "This feature is for premium users only. Upgrade to continue." });
     }
 
